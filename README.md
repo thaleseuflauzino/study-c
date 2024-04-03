@@ -1,1 +1,1 @@
-## Rpositório destinado para exercícios de aprendizado da linguagem C.
+## Repositório destinado para exercícios de aprendizado da linguagem C.
