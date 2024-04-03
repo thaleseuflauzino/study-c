@@ -1,0 +1,1 @@
+repositório destinado para exercicios de aprendizado da linguagem C.
