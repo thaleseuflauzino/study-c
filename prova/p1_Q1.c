@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int Q1(long long int valor) {
+int Q1(int valor) {
     int *ptr, *pnumeros, pn = valor % 10, pp, psoma = 0;
     if (pn < 2) pn = 5 - pn;
     pnumeros = (int*) malloc(pn * sizeof(int));
