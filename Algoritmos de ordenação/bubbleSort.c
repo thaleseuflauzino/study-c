@@ -57,11 +57,13 @@ int main(){
     bubble(vet, 11);
     printf("Vetor ordenado com o bubble 'padrao': ");
     imprimir(vet, 11);
-    bubbleOtimizado(vet, 11);
+    int vet2[] = {2, 4, 2, 8, 51, 78, 54, 26, 23, 21, 19};
+    bubbleOtimizado(vet2, 11);
     printf("Vetor ordenado com o bubble otimizado: ");
-    imprimir(vet, 11);
-    bubbleRecursivo(vet, 11);
+    imprimir(vet2, 11);
+    int vet3[] = {2, 4, 2, 8, 51, 78, 54, 26, 23, 21, 19};
+    bubbleRecursivo(vet3, 11);
     printf("Vetor ordenado com o bubble recursivo: ");
-    imprimir(vet, 11);
+    imprimir(vet3, 11);
 
 }
