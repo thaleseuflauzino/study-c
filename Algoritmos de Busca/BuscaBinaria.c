@@ -27,13 +27,14 @@ int buscaBinariaIterativa(int *vet, int chave, int tam){
 int main()
 {
     int vet[10] = {13, 14, 19, 43, 47, 52, 65, 82, 89, 91};
+    int vet2[10] = {13, 14, 19, 43, 47, 52, 65, 82, 89, 91};
     int valor, op;
     do
     {
         printf("Digite um valor a ser buscado: ");
         scanf("%d", &valor);
         printf("\nResultado da funcao recursiva: %d\n", buscaBinariaRecursiva(vet, valor, 0, 9));
-        printf("\nResultado da funcao iterativa: %d\n", buscaBinariaIterativa(vet, valor, 10));
+        printf("\nResultado da funcao iterativa: %d\n", buscaBinariaIterativa(vet2, valor, 10));
         printf("\n0 - Sair\n1 - Nova busca\n");
         scanf("%d", &op);
     } while (op != 0);
