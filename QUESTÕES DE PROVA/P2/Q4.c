@@ -4,7 +4,7 @@ int Q4(char *vet, int count){
     int pcont = 0;
     char aux;
     for (int i = 0; i < count; i++)
-        for (int j = 0; j < count; j++)
+        for (int j = i+1; j < count; j++)
         {
             if (vet[i] < vet[j])
             {
