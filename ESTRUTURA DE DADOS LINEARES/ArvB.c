@@ -82,12 +82,50 @@ int buscar(No *no, int valor){
                 return buscar(no->direita, valor);
 }
 
+No* remover(No *raiz, int valor){
+    if (raiz == NULL){
+        printf("Valor não encontrado!\n");
+        return NULL;}
+    else{
+        if (raiz->conteudo == valor){
+            if (raiz->esquerda == NULL && raiz->direita == NULL){
+                free(raiz);
+                return NULL;
+            } else {
+                if (raiz->esquerda == NULL){
+                    No *aux = raiz->direita;
+                    free(raiz);
+                    return aux;
+                } else
+                    if (raiz->direita == NULL){
+                        No *aux = raiz->esquerda;
+                        free(raiz);
+                        return aux;
+                    } else {
+                        No *aux = raiz->esquerda;
+                        while (aux->direita != NULL)
+                            aux = aux->direita;
+                        raiz->conteudo = aux->conteudo;
+                        raiz->esquerda = remover(raiz->esquerda, aux->conteudo);
+                        return raiz;
+                    }
+        }} else {
+            if (valor < raiz->conteudo){
+                raiz->esquerda = remover(raiz->esquerda, valor);
+                return raiz;
+            } else {
+                raiz->direita = remover(raiz->direita, valor);
+                return raiz;
+            }
+    }}
+}
+
 int main(){
     int op, valor;
     ArvB arv;
     arv.raiz = NULL;
     do{
-        printf("\n1 - Inserir\n2 - Imprimir\n3 - Buscar\n0 - Sair\n");
+        printf("\n1 - Inserir\n2 - Imprimir\n3 - Buscar\n4 - Remover\n0 - Sair\n");
         scanf("%d", &op);
         switch(op){
             case 1:
@@ -106,6 +144,11 @@ int main(){
                     printf("Valor não encontrado!\n");
                 else
                     printf("Valor encontrado!\n");
+                break;
+            case 4:
+                printf("Valor: ");
+                scanf("%d", &valor);
+                arv.raiz = remover(arv.raiz, valor);
                 break;
             case 0:
                 printf("Finalizando programa...\n");
