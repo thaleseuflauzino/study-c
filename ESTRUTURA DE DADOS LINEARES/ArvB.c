@@ -54,3 +54,10 @@ void inserir(ArvB *arv, int valor){
             inserirDireita(arv->raiz, valor);
     }
 }
+void imprimir(No *no){
+    if (no != NULL){
+        printf("%d ", no->conteudo);
+        imprimir(no->esquerda);
+        imprimir(no->direita);
+    }
+}
