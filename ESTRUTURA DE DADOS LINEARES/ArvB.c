@@ -56,8 +56,34 @@ void inserir(ArvB *arv, int valor){
 }
 void imprimir(No *no){
     if (no != NULL){
-        printf("%d ", no->conteudo);
         imprimir(no->esquerda);
+        printf("%d ", no->conteudo);
         imprimir(no->direita);
     }
+}
+
+int main(){
+    int op, valor;
+    ArvB arv;
+    arv.raiz = NULL;
+    do{
+        printf("\n1 - Inserir\n2 - Imprimir\n0 - Sair\n");
+        scanf("%d", &op);
+        switch(op){
+            case 1:
+                printf("Valor: ");
+                scanf("%d", &valor);
+                inserir(&arv, valor);
+                break;
+            case 2:
+                imprimir(arv.raiz);
+                break;
+            case 0:
+                printf("Finalizando programa...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+    } while(op != 0);
+    return 0;
 }
