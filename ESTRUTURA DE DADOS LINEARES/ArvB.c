@@ -69,12 +69,25 @@ int tamanho(No *no){
         return 1 + tamanho(no->esquerda) + tamanho(no->direita);
 }
 
+int buscar(No *no, int valor){
+    if (no == NULL)
+        return -1;
+    else
+        if (no->conteudo == valor)
+            return no->conteudo;
+        else
+            if (valor < no->conteudo)
+                return buscar(no->esquerda, valor);
+            else
+                return buscar(no->direita, valor);
+}
+
 int main(){
     int op, valor;
     ArvB arv;
     arv.raiz = NULL;
     do{
-        printf("\n1 - Inserir\n2 - Imprimir\n0 - Sair\n");
+        printf("\n1 - Inserir\n2 - Imprimir\n3 - Buscar\n0 - Sair\n");
         scanf("%d", &op);
         switch(op){
             case 1:
@@ -85,6 +98,14 @@ int main(){
             case 2:
                 imprimir(arv.raiz);
                 printf("\nTamanho: %d\n", tamanho(arv.raiz));
+                break;
+            case 3:
+                printf("Valor: ");
+                scanf("%d", &valor);
+                if (buscar(arv.raiz, valor) == -1)
+                    printf("Valor não encontrado!\n");
+                else
+                    printf("Valor encontrado!\n");
                 break;
             case 0:
                 printf("Finalizando programa...\n");
