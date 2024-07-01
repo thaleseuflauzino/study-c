@@ -20,7 +20,7 @@ void inserirEsquerda(No *no, int valor){
     } else {
         if(valor < no->esquerda->conteudo)
             inserirEsquerda(no->esquerda, valor);
-        else
+        if(valor > no->esquerda->conteudo)
             inserirDireita(no->esquerda, valor);
     }
 }
@@ -35,7 +35,7 @@ void inserirDireita(No *no, int valor){
     } else {
         if(valor > no->direita->conteudo)
             inserirDireita(no->direita, valor);
-        else
+        if(valor < no->direita->conteudo)
             inserirEsquerda(no->direita, valor);
     }
 }
@@ -50,7 +50,7 @@ void inserir(ArvB *arv, int valor){
     } else {
         if(valor < arv->raiz->conteudo)
             inserirEsquerda(arv->raiz, valor);
-        else
+        if(valor > arv->raiz->conteudo)
             inserirDireita(arv->raiz, valor);
     }
 }
