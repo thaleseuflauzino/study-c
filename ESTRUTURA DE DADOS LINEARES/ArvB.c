@@ -62,6 +62,13 @@ void imprimir(No *no){
     }
 }
 
+int tamanho(No *no){
+    if (no == NULL)
+        return 0;
+    else
+        return 1 + tamanho(no->esquerda) + tamanho(no->direita);
+}
+
 int main(){
     int op, valor;
     ArvB arv;
@@ -77,6 +84,7 @@ int main(){
                 break;
             case 2:
                 imprimir(arv.raiz);
+                printf("\nTamanho: %d\n", tamanho(arv.raiz));
                 break;
             case 0:
                 printf("Finalizando programa...\n");
