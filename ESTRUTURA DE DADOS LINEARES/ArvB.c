@@ -74,7 +74,7 @@ int buscar(No *no, int valor){
         return -1;
     else
         if (no->conteudo == valor)
-            return no->conteudo;
+            return 1;
         else
             if (valor < no->conteudo)
                 return buscar(no->esquerda, valor);
